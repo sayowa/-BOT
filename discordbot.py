@@ -28,6 +28,7 @@ async def on_member_join(member):
         text = f'{member.mention} いらっしゃいませ。お約束のテキストチャンネル読んでくださいね。'
         await sysch.send(text)
 
+@client.event
 async def on_member_remove(member):
     guild = member.guild # サーバー
     sysch = guild.system_channel # 参加メッセージを表示するチャンネル
