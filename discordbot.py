@@ -4,7 +4,7 @@ import os
 import asyncio
 
 # 通知用のチャンネルID
-inform_channel = 625682764431097861
+inform_channel = '#聞き専tc'
 
 token = os.environ['DISCORD_BOT_TOKEN']
 
