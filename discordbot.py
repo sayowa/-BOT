@@ -25,9 +25,15 @@ async def on_member_join(member):
     guild = member.guild # サーバー
     sysch = guild.system_channel # 参加メッセージを表示するチャンネル
     if sysch: # チャンネルが設定されてなかったら何もしない
-        text = f'{member.mention} いらっしゃいませ'
+        text = f'{member.mention} いらっしゃいませ。お約束のテキストチャンネル読んでくださいね。'
         await sysch.send(text)
 
+async def on_member_remove(member):
+    guild = member.guild # サーバー
+    sysch = guild.system_channel # 参加メッセージを表示するチャンネル
+    if sysch: # チャンネルが設定されてなかったら何もしない
+        text = f'{member.mention} 寂しいですが、またよかったら来てくださいね'
+        await sysch.send(text)
 
 client.run(token)
 
