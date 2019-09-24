@@ -19,6 +19,19 @@ async def on_voice_state_update(member, before, after):
         elif after.channel is None: 
             msg = f'{now:%H:%M} に {member.name} が {before.channel.name} から退出しました。'
             await alert_channel.send(msg)
+            
+@client.event
+async def on_guild_state_update(member, before, after): 
+    if member.guild.id == 625656760501272617 and (before.guild != after.guild):
+        now = datetime.utcnow() + timedelta(hours=9)
+        alert_channel = client.get_channel(625681454176665610)
+        if before.channel is None: 
+            msg = f'{now:%H:%M} に {member.name} が {after.channel.name} に参加しました。'
+            await alert_channel.send(msg)
+        elif after.channel is None: 
+            msg = f'{now:%H:%M} に {member.name} が {before.channel.name} から退出しました。'
+            await alert_channel.send(msg)
+
 
 client.run(token)
 
