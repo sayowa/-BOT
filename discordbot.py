@@ -35,24 +35,6 @@ async def on_member_remove(member):
     if sysch: # チャンネルが設定されてなかったら何もしない
         text = f'{member.name} さん　寂しいですが、またよかったら来てくださいね'
         await sysch.send(text)
-
-@client.event
-def __init__(self):
-        super().__init__()
-
-        self.bg_task = self.loop.create_task(self.task())
-
-    async def on_ready(self):
-        print("開始")
-
-    async def task(self):
-        await self.wait_until_ready()
-
-        while True:
-            async with aiohttp.ClientSession() as session:
-                async with session.get('https://la.happytuk.co.jp/la/index') as resp:
-                    print(await resp.text())
-            await asyncio.sleep(60)
         
 client.run(token)
 
